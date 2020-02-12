@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MEMEGEN</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+
+    <nav class="nav-container container">
+        <img class="logo" src="../img/logo.png" />
+        <ul class="nav">
+            <li>Gallery</li>
+            <li> | </li>
+            <li>About</li>
+        </ul>
+    </nav>
+
+    <div class="search-container container"></div>
+
+    <div class="main-container container">
+        <div class="gallery-container"></div>
+    </div>
+
+    <div class="canvas-container container">
+        <canvas id="meme-canvas" height="450" width="450" style="border: 1px solid black;"></canvas>
+        <div class="meme-control">
+            <input type="text" class="control-txt-input" value="" onchange="onChangeText(this.value)">
+            <!-- <button class="control-btn">Change</button> -->
+            <button class="control-btn"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png" /></button>
+            <button class="control-btn" onclick="onChangePosition(-2)"><img src="icons/up.png" /></button>
+            <button class="control-btn" onclick="onChangePosition(2)"><img src="icons/down.png" /></button>
+            <button class="control-btn"><img src="icons/add.png" /></button>
+            <button class="control-btn"><img src="icons/trash.png" /></button>
+            <button class="control-btn" onclick="onChangeSize(1)"><img src="icons/increase-font-icon.png" /></button>
+            <button class="control-btn" onclick="onChangeSize(-1)"><img src="icons/decrease-font-icon.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('right')"><img src="icons/align-to-left.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('center')">
+                <img src="icons/center-text-alignment.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('left')"><img src="icons/align-to-right.png" /></button>
+            <select class="control-select" onchange="onChangeFont(value)">
+                <option>Impact</option>
+                <option>Montserrat</option>
+                <option>Pacifico</option>
+                <option>Sacramento</option>
+            </select>
+            <button class="control-btn">
+                <input class="control-color-input" type="color" onchange="onChangeOutlineColor(value)" />
+                <img src="icons/text-stroke.png"></button>
+            <button class="control-btn">
+                <input class="control-color-input" type="color" onchange="onChangeFillColor(value)" />
+                <img src="icons/paint-board-and-brush.png"></button>
+
+        </div>
+    </div>
+
+    <div class="about-container container"></div>
+
+    <footer class="footer-container container">
+        <img class="logo" src="../img/logo.png" />
+        <p>all rights reserved 2019</p>
+    </footer>
+
+
+    <script src="js/util.js"></script>
+    <script src="js/memegen-service.js"></script>
+    <script src="js/memegen-gallery-controller.js"></script>
+    <script src="js/memegen-editor-controller.js"></script>
+</body>
+
+</html>

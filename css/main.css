@@ -1,0 +1,170 @@
+/*** Base ***/
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: Pacifico;
+    src: url(../fonts/Pacifico/Pacifico-Regular.ttf);
+}
+
+@font-face {
+    font-family: Sacramento;
+    src: url(../fonts/Sacramento/Sacramento-Regular.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Pacifico, sans-serif;
+    font-family: Sacramento, sans-serif;
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.logo {
+    width: 133px;
+}
+
+/*** Layout ***/
+
+.container {
+    padding: 0 40px;
+}
+
+/*** Nav ***/
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 66px;
+    background-color: #ff7f00;
+    margin: 0;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style: none;
+    margin: 5px;
+    color: #ffffff;
+    font-size: 1.1875rem;
+}
+
+li:hover {
+    color: #040a2c;
+    cursor: pointer;
+    box-shadow: inset 0 -6px 0 #040a2c;
+}
+
+/* li.active {
+
+} */
+
+/*** Gallery ***/
+
+.main-container {
+    background-color: #e3e3e3;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 280px));
+    grid-gap: 20px;
+    justify-content: center;
+    align-content: center;
+    padding: 40px 0;
+}
+
+.gallery-container img {
+    cursor: pointer;
+    width: 240px;
+}
+
+/*** Canvas ***/
+
+.canvas-container {
+    display: none;
+    background-color: aquamarine;
+    /* position: absolute; */
+    top: 80px;
+    width: 100%;
+    height: 100% - 80px;
+    justify-content: space-around;
+    background-color: #e3e3e3;
+    padding: 40px 0;
+}
+
+/*** Control ***/
+
+.meme-control {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr 1fr 1fr 1fr 1fr;
+    width: 40%;
+}
+
+.control-txt-input {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    justify-self: left;
+    width: 373px;
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #000000;
+    font-size: 1.25rem;
+}
+
+.control-btn {
+    justify-self: left;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.control-select {
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+    justify-self: left;
+    width: 218px;
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #000000;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.control-btn img {
+    width: 70%;
+}
+
+/*** About ***/
+
+/*** Footer ***/
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff7f00;
+    color: #ffffff;
+    height: 180px;
+    font-size: 19px;
+}
