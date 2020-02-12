@@ -17,6 +17,7 @@ function drawImg() {
 function renderText() {
     var meme = getMeme()
     var lines = meme.lines
+    if (lines.length === 0) return
     lines.forEach(line => drawText(line))
 
     var selectedLine = meme.lines[meme.selectedLineIdx]
@@ -70,5 +71,15 @@ function onChangePosition(num) {
 
 function onSwitchLines() {
     switchLines()
+    renderCanvas()
+}
+
+function onDeleteLine() {
+    deleteLine()
+    renderCanvas()
+}
+
+function onAddLine() {
+    addLine()
     renderCanvas()
 }
