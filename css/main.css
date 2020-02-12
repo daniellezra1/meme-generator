@@ -97,7 +97,7 @@ li:hover {
     top: 80px;
     width: 100%;
     height: 100% - 80px;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: #e3e3e3;
     padding: 40px 0;
 }
@@ -108,7 +108,6 @@ li:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-auto-rows: 1fr 1fr 1fr 1fr 1fr;
-    width: 40%;
 }
 
 .control-txt-input {
@@ -150,6 +149,10 @@ li:hover {
     cursor: pointer;
 }
 
+input {
+    cursor: pointer;
+}
+
 .control-btn img {
     width: 70%;
 }
@@ -167,4 +170,32 @@ li:hover {
     color: #ffffff;
     height: 180px;
     font-size: 19px;
+}
+
+@media (max-width: 920px) {
+    /*** Canvas ***/
+
+    .canvas-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /*** Control ***/
+
+    .meme-control {
+        margin-top: 20px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 500px) {
+    
+    /*** Control ***/
+
+        .control-btn {
+        width: 40px;
+        height: 40px;
+    }
+
 }

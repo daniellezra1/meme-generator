@@ -1,15 +1,11 @@
 
-// var gFirstLoad = true
-var gFirstLinePos = 50
-var gSecondLinePos = 400
-
+gFirstLoad = true
 
 function renderCanvas() {
     gCanvas = document.querySelector('#meme-canvas')
     gCtx = gCanvas.getContext('2d')
     drawImg()
-    renderText(gFirstLinePos)
-    renderText(gSecondLinePos)
+    renderText()
 }
 
 function drawImg() {
@@ -18,37 +14,23 @@ function drawImg() {
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
 }
 
-// function renderText() {
-//     if (gFirstLoad) {
-//         var meme = getMeme()
-//         var txt = meme.lines[0].txt
-//         document.querySelector('.control-txt-input').value = txt
-//         gFirstLoad = false
-//         drawText(txt, 225, 50)
-//     } else {
-//         var elTxt = document.querySelector('.control-txt-input').value
-//         changeLine(elTxt, 0)
-//         drawText(elTxt, 225, 50)
-//     }
-// }
-
-function renderText(pos) {
+function renderText() {
     var meme = getMeme()
-    var txt = meme.lines[0].txt
-    document.querySelector('.control-txt-input').value = txt
-    drawText(txt, pos)
+    var lines = meme.lines
+    lines.forEach(line => drawText(line))
+
+    var selectedLine = meme.lines[meme.selectedLineIdx]
+    document.querySelector('.control-txt-input').value = selectedLine.txt
 }
 
-function drawText(txt, pos) {
-    var meme = getMeme()
-    var lineIdx = meme.selectedLineIdx
+function drawText(line) {
     // gCtx.lineWidth = '0.1'
-    gCtx.strokeStyle = meme.lines[lineIdx].OutlineColor
-    gCtx.fillStyle = meme.lines[lineIdx].fillColor
-    gCtx.font = `${meme.lines[lineIdx].size}px ${meme.lines[lineIdx].font}`
-    gCtx.textAlign = meme.lines[lineIdx].align
-    gCtx.fillText(txt, 225, pos)
-    gCtx.strokeText(txt, 225, pos)
+    gCtx.strokeStyle = line.OutlineColor
+    gCtx.fillStyle = line.fillColor
+    gCtx.font = `${line.size}px ${line.font}`
+    gCtx.textAlign = line.align
+    gCtx.fillText(line.txt, 225, line.positionY)
+    gCtx.strokeText(line.txt, 225, line.positionY)
 }
 
 function onChangeText(txt) {
@@ -82,7 +64,11 @@ function onChangeFont(font) {
 }
 
 function onChangePosition(num) {
-    // changePosition()
-    gFirstLinePos += num
+    changePosition(num)
+    renderCanvas()
+}
+
+function onSwitchLines() {
+    switchLines()
     renderCanvas()
 }
