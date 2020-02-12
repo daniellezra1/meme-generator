@@ -87,7 +87,7 @@ var gMeme = {
         font: 'impact',
         size: 40,
         align: 'center',
-        OutlineColor: 'white',
+        OutlineColor: 'black',
         fillColor: 'white',
         positionX: 225,
         positionY: 50
@@ -96,7 +96,7 @@ var gMeme = {
         font: 'impact',
         size: 40,
         align: 'center',
-        OutlineColor: 'white',
+        OutlineColor: 'black',
         fillColor: 'white',
         positionX: 225,
         positionY: 430
@@ -155,10 +155,23 @@ function changeFont(font) {
     gMeme.lines[lineIdx].font = font
 }
 
-function changePosition(num) {
+function changePosForMobile(pos) {
+    gMeme.lines.forEach(line => {
+        line.positionX = (pos / 2)
+        if (line.positionY > pos - 20) line.positionY = (pos - 20)
+    })
+}
+
+function changePositionY(num) {
     if (gMeme.lines.length === 0) return
     const lineIdx = gMeme.selectedLineIdx
     gMeme.lines[lineIdx].positionY += num
+}
+
+function changePositionX(num) {
+    if (gMeme.lines.length === 0) return
+    const lineIdx = gMeme.selectedLineIdx
+    gMeme.lines[lineIdx].positionX += num
 }
 
 function switchLines() {
@@ -180,7 +193,7 @@ function addLine() {
         font: 'impact',
         size: 40,
         align: 'center',
-        OutlineColor: 'white',
+        OutlineColor: 'black',
         fillColor: 'white',
         positionX: 225,
         positionY: 225
@@ -189,9 +202,3 @@ function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
-function changePosX(pos) {
-    gMeme.lines.forEach(line => {
-        line.positionX = (pos / 2)
-        if (line.positionY > pos - 20) line.positionY = (pos - 20)
-    })
-}

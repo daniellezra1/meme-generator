@@ -20,7 +20,7 @@ function isMobileDevice() {
 function resizeCanvas() {
     gCanvas.width = window.innerWidth - 20
     gCanvas.height = window.innerWidth - 20
-    changePosX(window.innerWidth - 20)
+    changePosForMobile(window.innerWidth - 20)
     document.querySelector('.meme-control').style.width = `"${window.innerWidth}px"`
 }
 
@@ -80,8 +80,13 @@ function onChangeFont(font) {
     renderCanvas()
 }
 
-function onChangePosition(num) {
-    changePosition(num)
+function onChangePositionY(num) {
+    changePositionY(num)
+    renderCanvas()
+}
+
+function onChangePositionX(num) {
+    changePositionX(num)
     renderCanvas()
 }
 
@@ -98,4 +103,37 @@ function onDeleteLine() {
 function onAddLine() {
     addLine()
     renderCanvas()
+}
+
+function onDownloadCanvas(elLink) {
+    const data = gCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'Img'
+}
+
+
+function uploadImg(elForm, ev) {
+    ev.preventDefault()
+    document.getElementById('imgData').value = gCanvas.toDataURL("image/jpeg")
+
+    function onSuccess(uploadedImgUrl) {
+        uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`)
+    }
+    doUploadImg(elForm, onSuccess)
+}
+
+function doUploadImg(elForm, onSuccess) {
+    var formData = new FormData(elForm)
+    fetch('http://ca-upload.com/here/upload.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(function (res) {
+            return res.text()
+        })
+        .then(onSuccess)
+        .catch(function (err) {
+            console.error(err)
+        })
 }
