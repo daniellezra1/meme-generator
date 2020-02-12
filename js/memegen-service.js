@@ -89,6 +89,7 @@ var gMeme = {
         align: 'center',
         OutlineColor: 'white',
         fillColor: 'white',
+        positionX: 225,
         positionY: 50
     }, {
         txt: 'I love Falafel',
@@ -97,8 +98,9 @@ var gMeme = {
         align: 'center',
         OutlineColor: 'white',
         fillColor: 'white',
+        positionX: 225,
         positionY: 430
-    }]
+    }],
 }
 
 function getMeme() {
@@ -180,8 +182,16 @@ function addLine() {
         align: 'center',
         OutlineColor: 'white',
         fillColor: 'white',
+        positionX: 225,
         positionY: 225
     }
     gMeme.lines.push(line)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function changePosX(pos) {
+    gMeme.lines.forEach(line => {
+        line.positionX = (pos / 2)
+        if (line.positionY > pos - 20) line.positionY = (pos - 20)
+    })
 }

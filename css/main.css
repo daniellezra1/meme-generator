@@ -17,6 +17,7 @@
 
 * {
     box-sizing: border-box;
+    outline: none;
     font-family: Pacifico, sans-serif;
     font-family: Sacramento, sans-serif;
     font-family: Montserrat, sans-serif;
@@ -30,6 +31,23 @@ body {
     width: 133px;
 }
 
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity .3s;
+    visibility: hidden;
+}
+
+.menu-open .screen {
+    opacity: 1;
+    visibility: visible;
+}
+
 /*** Layout ***/
 
 .container {
@@ -37,6 +55,10 @@ body {
 }
 
 /*** Nav ***/
+
+.hamburger {
+    display: none;
+}
 
 .nav-container {
     display: flex;
@@ -76,7 +98,7 @@ li:hover {
 
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 280px));
+    grid-template-columns: repeat(auto-fill, 240px);
     grid-gap: 20px;
     justify-content: center;
     align-content: center;
@@ -149,10 +171,6 @@ li:hover {
     cursor: pointer;
 }
 
-input {
-    cursor: pointer;
-}
-
 .control-btn img {
     width: 70%;
 }
@@ -190,12 +208,37 @@ input {
 }
 
 @media (max-width: 500px) {
+
+    .container{
+        padding: 0 15px;
+    }
     
     /*** Control ***/
 
-        .control-btn {
+    .control-btn {
         width: 40px;
         height: 40px;
     }
 
+    /*** Gallery ***/
+
+    .gallery-container img {
+        cursor: pointer;
+        width: 140px;
+    }
+
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 140px);
+        grid-gap: 10px;
+        padding: 30px 0;
+    }
+
+    .hamburger {
+        display: inline-block;
+    }   
+
+    .nav {
+        display: none;
+    }
 }
