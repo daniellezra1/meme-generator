@@ -203,7 +203,7 @@ li:hover {
 
     .meme-control {
         margin-top: 20px;
-        height: 300px;
+        height: 350px;
     }
 }
 
@@ -216,8 +216,10 @@ li:hover {
     /*** Control ***/
 
     .control-btn {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
+        justify-self: center;
+        border-radius: 10px;
     }
 
     /*** Gallery ***/

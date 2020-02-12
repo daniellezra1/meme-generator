@@ -21,8 +21,7 @@ function resizeCanvas() {
     gCanvas.width = window.innerWidth - 20
     gCanvas.height = window.innerWidth - 20
     changePosX(window.innerWidth - 20)
-
-    // document.querySelector('.meme-control').style.width = `${window.innerWidth}px`
+    document.querySelector('.meme-control').style.width = `"${window.innerWidth}px"`
 }
 
 function drawImg() {
