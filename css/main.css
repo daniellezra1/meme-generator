@@ -83,12 +83,13 @@ li {
 li:hover {
     color: #040a2c;
     cursor: pointer;
-    box-shadow: inset 0 -6px 0 #040a2c;
 }
 
-/* li.active {
-
-} */
+li.active {
+    color: #040a2c;
+    cursor: pointer;
+    box-shadow: inset 0 -6px 0 #040a2c;
+}
 
 /*** Gallery ***/
 
@@ -108,6 +109,33 @@ li:hover {
 .gallery-container img {
     cursor: pointer;
     width: 240px;
+}
+
+/*** Memes ***/
+
+.side-container {
+    background-color: #e3e3e3;
+}
+
+.meme-container{
+    display: none;
+    grid-template-columns: repeat(auto-fill, 240px);
+    grid-gap: 20px;
+    justify-content: center;
+    align-content: center;
+    padding: 40px 0;
+}
+
+.meme-container img {
+    cursor: pointer;
+    width: 240px;
+}
+
+/*** About ***/
+
+.about-container {
+    display: none;
+    padding: 40px 0;
 }
 
 /*** Canvas ***/
@@ -153,11 +181,11 @@ canvas {
     grid-column: 1 / 6;
     grid-row: 2 / 3;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
 }
 
-.btn-group1 .control-btn {
+/* .btn-group1 .control-btn {
     justify-self: center;
 }
 
@@ -167,7 +195,7 @@ canvas {
 
 .btn-group1 > .control-btn:last-child {
     justify-self: left;
-}
+} */
 
 .btn-group2 {
     grid-column: 1 / 6;
@@ -177,6 +205,7 @@ canvas {
     grid-auto-rows: 1fr;
 }
 
+.btn-group1 .control-btn,
 .btn-group2 .control-btn {
     justify-self: center;
 }
@@ -236,6 +265,44 @@ a {
     text-decoration: none;
     color: #000000;
 }
+
+.inputfile,
+.inputcolor {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    display: inline-block;
+    justify-self: center;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    cursor: pointer;
+    padding: 12px 1px;
+    text-align: center;
+}
+
+.inputcolor + label {
+    display: inline-block;
+    justify-self: center;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    cursor: pointer;
+    padding: 12px 1px;
+    text-align: center;
+
+}
+
 
 /*** About ***/
 

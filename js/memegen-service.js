@@ -1,5 +1,10 @@
 'use strict'
 
+var gSavedImgs
+var gSavedMemes
+const keyMemes = 'Memes'
+const keyImgs = 'Imgs'
+
 var gKeywords = {
     'happy': 12,
     'funny puk': 1
@@ -111,6 +116,14 @@ function getMeme() {
     return gMeme
 }
 
+function getSavedMemes() {
+    return gSavedMemes
+}
+
+function getSavedImgs() {
+    return gSavedImgs
+}
+
 function getImges() {
     return gImgs
 }
@@ -213,3 +226,50 @@ function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
+function renderLocalStorage() {
+    gSavedMemes = loadFromStorage(keyMemes)
+    gSavedImgs = loadFromStorage(keyImgs)
+}
+
+function saveImg(data) {
+    gSavedImgs.unshift(data)
+    saveToStorage(keyImgs, gSavedImgs)
+}
+
+function saveAndRestartMeme() {
+    gSavedMemes.unshift(gMeme)
+    saveToStorage(keyMemes, gSavedMemes)
+    restartMeme()
+}
+
+function restartMeme() {
+    gMeme = {
+        selectedImgId: 0,
+        selectedLineIdx: 0,
+        lines: [{
+            txt: 'I never eat Falafel',
+            font: 'impact',
+            size: 40,
+            align: 'center',
+            OutlineColor: 'black',
+            fillColor: 'white',
+            positionX: 225,
+            positionY: 50,
+            isDragging: false
+        }, {
+            txt: 'I love Falafel',
+            font: 'impact',
+            size: 40,
+            align: 'center',
+            OutlineColor: 'black',
+            fillColor: 'white',
+            positionX: 225,
+            positionY: 430,
+            isDragging: false
+        }],
+    }
+}
+
+function editCurrMeme(idx) {
+    gMeme = gSavedMemes[idx]
+}

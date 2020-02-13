@@ -3,18 +3,21 @@
 var gCanvas
 var gCtx
 var gFirstLoad = true
+var gIsLocalImg = false
+var gLocalImg
 
 function renderCanvas() {
     gCanvas = document.querySelector('#meme-canvas')
     gCtx = gCanvas.getContext('2d')
 
     if (isMobileDevice() && gFirstLoad) resizeCanvas()
-    drawImg()
+
+    if (gIsLocalImg) drawLocalImg(gLocalImg)
+    else drawImg()
+
     renderText()
     window.addEventListener('keydown', doKeyDown, true)
-
     addDragDrop()
-
 }
 
 function isMobileDevice() {
@@ -27,6 +30,10 @@ function resizeCanvas() {
     changePosForMobile(window.innerWidth - 20)
     document.querySelector('.meme-control').style.width = `"${window.innerWidth}px"`
     gFirstLoad = false
+}
+
+function drawLocalImg() {
+    gCtx.drawImage(gLocalImg, 0, 0, gCanvas.width, gCanvas.height);
 }
 
 function drawImg() {
@@ -112,6 +119,7 @@ function onAddLine() {
 
 function onDownloadCanvas(elLink) {
     const data = gCanvas.toDataURL()
+    console.log(data)
     elLink.href = data
     elLink.download = 'Img'
 }
@@ -141,6 +149,29 @@ function doUploadImg(elForm, onSuccess) {
         .catch(function (err) {
             console.error(err)
         })
+}
+
+function onUploadImg(ev) {
+    loadImageFromInput(ev, renderCanvas)
+    gIsLocalImg = true
+}
+function loadImageFromInput(ev, onImageReady) {
+    var reader = new FileReader();
+
+    reader.onload = function (event) {
+        gLocalImg = new Image();
+        gLocalImg.onload = onImageReady.bind(null, gLocalImg)
+        gLocalImg.src = event.target.result;
+    }
+    reader.readAsDataURL(ev.target.files[0]);
+}
+
+
+function onSaveToStorage() {
+    const data = gCanvas.toDataURL()
+    saveImg(data)
+    saveAndRestartMeme()
+    onGetMemePage()
 }
 
 function doKeyDown(ev) {

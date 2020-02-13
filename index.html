@@ -18,11 +18,11 @@
     <nav class="nav-container container">
         <img class="logo" src="icons/logo.png" />
         <ul class="nav">
-            <li>Gallery</li>
+            <li class="nav-gallery" onclick="onGetGalleryPage()">Gallery</li>
             <li> | </li>
-            <li>Memes</li>
+            <li class="nav-memes" onclick="onGetMemePage()">Memes</li>
             <li> | </li>
-            <li>About</li>
+            <li class="nav-about" onclick="onGetAboutPage()">About</li>
         </ul>
         <button class="menu-btn hamburger hamburger--slider" type="button" onclick="toggleMenu()">
             <span class="hamburger-box">
@@ -37,9 +37,13 @@
         <div class="gallery-container"></div>
     </div>
 
+    <div class="side-container container">
+        <div class="meme-container">DDDDDD</div>
+    </div>
+
     <div class="canvas-container container">
         <canvas id="meme-canvas" height="450" width="450" style="border: 1px solid black;">
-            <input id="focus-btn" type="range" min="1" max="12">
+            <!-- <input id="focus-btn" type="range" min="1" max="12"> -->
         </canvas>
         <div class="meme-control">
             <input type="text" class="control-txt-input" value="" onkeydown="onChangeText(value)" title="Change Text">
@@ -50,6 +54,8 @@
                         src="icons/add.png" /></button>
                 <button class="control-btn" onclick="onDeleteLine()" title="Delete Text"><img
                         src="icons/trash.png" /></button>
+                <input type="file" id="file" class="inputfile" name="image" onchange="onUploadImg(event)" />
+                <label for="file">Upload image</label>
             </div>
             <div class="btn-group2">
                 <button class="control-btn" onclick="onChangePositionY(-2)" title="Move Up"><img
@@ -85,11 +91,9 @@
                 <input class="control-color-input" type="color" onchange="onChangeFillColor(value)"
                     title="Choose color" />
                 <img src="icons/paint-board-and-brush.png"></button>
-            <button class="control-btn save-btn">Save</button>
+            <button class="control-btn save-btn" onclick="onSaveToStorage()">Save</button>
             <button class="control-btn download-btn"><a href="#" onclick="onDownloadCanvas(this)"
                     download="">Download</a></button>
-
-
             <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                 <input name="img" id="imgData" type="hidden" />
                 <button class="control-btn share-btn" type="submit" onsubmit="uploadImg(this, event)">Share on
@@ -97,7 +101,9 @@
         </div>
     </div>
 
-    <div class="about-container container"></div>
+    <div class="side-container container">
+        <div class="about-container container">about about about</div>
+    </div>
 
     <footer class="footer-container container">
         <img class="logo" src="icons/logo.png" />
