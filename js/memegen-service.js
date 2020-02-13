@@ -1,3 +1,5 @@
+'use strict'
+
 var gKeywords = {
     'happy': 12,
     'funny puk': 1
@@ -90,7 +92,8 @@ var gMeme = {
         OutlineColor: 'black',
         fillColor: 'white',
         positionX: 225,
-        positionY: 50
+        positionY: 50,
+        isDragging: false
     }, {
         txt: 'I love Falafel',
         font: 'impact',
@@ -99,7 +102,8 @@ var gMeme = {
         OutlineColor: 'black',
         fillColor: 'white',
         positionX: 225,
-        positionY: 430
+        positionY: 430,
+        isDragging: false
     }],
 }
 
@@ -180,11 +184,18 @@ function switchLines() {
     else gMeme.selectedLineIdx++
 }
 
+function switchLinesDrogDrop(idx) {
+    gMeme.selectedLineIdx = idx
+}
+
 function deleteLine() {
     if (gMeme.lines.length === 0) return
     const lineIdx = gMeme.selectedLineIdx
     gMeme.lines.splice(lineIdx, 1)
+}
 
+function updateDragging(idx, bool) {
+    gMeme.lines[idx].isDragging = bool
 }
 
 function addLine() {

@@ -112,10 +112,13 @@ li:hover {
 
 /*** Canvas ***/
 
+canvas {
+    cursor: crosshair;
+}
+
 .canvas-container {
     display: none;
     background-color: aquamarine;
-    /* position: absolute; */
     top: 80px;
     width: 100%;
     height: 100% - 80px;
@@ -262,7 +265,7 @@ a {
 
     .meme-control {
         margin-top: 20px;
-        height: 400px;
+        height: 450px;
     }
 }
 

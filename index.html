@@ -38,25 +38,39 @@
     </div>
 
     <div class="canvas-container container">
-        <canvas id="meme-canvas" height="450" width="450" style="border: 1px solid black;"></canvas>
+        <canvas id="meme-canvas" height="450" width="450" style="border: 1px solid black;">
+            <input id="focus-btn" type="range" min="1" max="12">
+        </canvas>
         <div class="meme-control">
             <input type="text" class="control-txt-input" value="" onkeydown="onChangeText(value)" title="Change Text">
             <div class="btn-group1">
-                <button class="control-btn" onclick="onSwitchLines()" title="Switch Text"><img src="icons/switch.png" /></button>
-                <button class="control-btn" onclick="onAddLine()" title="Add New Text"><img src="icons/add.png" /></button>
-                <button class="control-btn" onclick="onDeleteLine()" title="Delete Text"><img src="icons/trash.png" /></button>
+                <button class="control-btn" onclick="onSwitchLines()" title="Switch Text"><img
+                        src="icons/switch.png" /></button>
+                <button class="control-btn" onclick="onAddLine()" title="Add New Text"><img
+                        src="icons/add.png" /></button>
+                <button class="control-btn" onclick="onDeleteLine()" title="Delete Text"><img
+                        src="icons/trash.png" /></button>
             </div>
             <div class="btn-group2">
-                <button class="control-btn" onclick="onChangePositionY(-2)" title="Move Up"><img src="icons/up.png" /></button>
-                <button class="control-btn" onclick="onChangePositionY(2)" title="Move Down"><img src="icons/down.png" /></button>
-                <button class="control-btn" onclick="onChangePositionX(-2)" title="Move Left"><img src="icons/left.png" /></button>
-                <button class="control-btn" onclick="onChangePositionX(2)" title="Move Rigth"><img src="icons/rigth.png" /></button>
+                <button class="control-btn" onclick="onChangePositionY(-2)" title="Move Up"><img
+                        src="icons/up.png" /></button>
+                <button class="control-btn" onclick="onChangePositionY(2)" title="Move Down"><img
+                        src="icons/down.png" /></button>
+                <button class="control-btn" onclick="onChangePositionX(-2)" title="Move Left"><img
+                        src="icons/left.png" /></button>
+                <button class="control-btn" onclick="onChangePositionX(2)" title="Move Rigth"><img
+                        src="icons/rigth.png" /></button>
             </div>
-            <button class="control-btn" onclick="onChangeSize(1)" title="Increase Text"><img src="icons/increase-font.png" /></button>
-            <button class="control-btn" onclick="onChangeSize(-1)" title="Decrease Text"><img src="icons/decrease-font.png" /></button>
-            <button class="control-btn" onclick="onChangeAlign('right')" title="Align Left"><img src="icons/align-to-left.png" /></button>
-            <button class="control-btn" onclick="onChangeAlign('center')" title="Align Center"><img src="icons/align-center.png" /></button>
-            <button class="control-btn" onclick="onChangeAlign('left')" title="Align Right"><img src="icons/align-to-right.png" /></button>
+            <button class="control-btn" onclick="onChangeSize(1)" title="Increase Text"><img
+                    src="icons/increase-font.png" /></button>
+            <button class="control-btn" onclick="onChangeSize(-1)" title="Decrease Text"><img
+                    src="icons/decrease-font.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('right')" title="Align Left"><img
+                    src="icons/align-to-left.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('center')" title="Align Center"><img
+                    src="icons/align-center.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('left')" title="Align Right"><img
+                    src="icons/align-to-right.png" /></button>
             <select class="control-select" onchange="onChangeFont(value)" title="Choose Font">
                 <option>Impact</option>
                 <option>Montserrat</option>
@@ -64,18 +78,22 @@
                 <option>Sacramento</option>
             </select>
             <button class="control-btn">
-                <input class="control-color-input" type="color" onchange="onChangeOutlineColor(value)" title="Choose Outline color" />
+                <input class="control-color-input" type="color" onchange="onChangeOutlineColor(value)"
+                    title="Choose Outline color" />
                 <img src="icons/text-stroke.png"></button>
             <button class="control-btn">
-                <input class="control-color-input" type="color" onchange="onChangeFillColor(value)" title="Choose color" />
+                <input class="control-color-input" type="color" onchange="onChangeFillColor(value)"
+                    title="Choose color" />
                 <img src="icons/paint-board-and-brush.png"></button>
             <button class="control-btn save-btn">Save</button>
-            <button class="control-btn download-btn"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
+            <button class="control-btn download-btn"><a href="#" onclick="onDownloadCanvas(this)"
+                    download="">Download</a></button>
 
 
             <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                 <input name="img" id="imgData" type="hidden" />
-                <button class="control-btn share-btn" type="submit" onsubmit="uploadImg(this, event)">Share on FB</button></form>
+                <button class="control-btn share-btn" type="submit" onsubmit="uploadImg(this, event)">Share on
+                    FB</button></form>
         </div>
     </div>
 
