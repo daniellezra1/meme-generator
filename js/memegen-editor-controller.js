@@ -188,9 +188,9 @@ function dragText(ev) {
 
     var offsetX
     var offsetY
-    if (ev.type === 'touchmove') {
-        offsetX = ev.changedTouches[screenX].pageX
-        offsetY = ev.changedTouches[screenY].pageY
+    if (ev.type === 'touchstart') {
+        offsetX = ev.changedTouches[0].pageX - gCanvas.getBoundingClientRect().left
+        offsetY = ev.changedTouches[0].pageY - gCanvas.getBoundingClientRect().top
     } else {
         offsetX = ev.offsetX
         offsetY = ev.offsetY
@@ -253,8 +253,8 @@ function moveText(ev) {
         var offsetX
         var offsetY
         if (ev.type === 'touchmove') {
-            offsetX = ev.changedTouches[screenX].pageX
-            offsetY = ev.changedTouches[screenY].pageY
+            offsetX = ev.changedTouches[0].pageX - gCanvas.getBoundingClientRect().left
+            offsetY = ev.changedTouches[0].pageY - gCanvas.getBoundingClientRect().top
         } else {
             offsetX = ev.offsetX
             offsetY = ev.offsetY
