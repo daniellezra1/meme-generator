@@ -13,20 +13,40 @@ function onRenderGallery() {
     })
     document.querySelector('.gallery-container').innerHTML = strHtml
     document.querySelector('.nav-gallery').classList.add('active')
+    document.querySelector('.about-container').style.display = 'none'
 }
 
 function onRenderMemes() {
     var savedImgs = getSavedImgs()
-    // var savedMemes = getSavedMemes()
     var id = 0
     var strHtml = ``
     savedImgs.forEach(savedImg => {
-        // console.log(savedMemes[id])
         strHtml += `<img src="${savedImg}" id="img-num-${id}" onclick="onEditCurrMeme(${id})">`
         id++
     })
     document.querySelector('.meme-container').innerHTML = strHtml
     document.querySelector('.nav-memes').classList.add('active')
+}
+
+function onFilterMemes(txt) {
+    // if (!txt) onRenderGallery()
+    var imgs = getImges()
+    var newImgs = imgs.filter(img => {
+        var keywords = img.keywords
+        var isInclude = keywords.find(keyword => keyword.startsWith(txt.toLowerCase()))
+        if (isInclude) return img
+    })
+
+    var strHtml = ``
+    newImgs.forEach(img => {
+        strHtml += `<img src="${img.url}" id="img-num-${img.id}" onclick="onRenderCanvas(${img.id})">`
+    })
+    document.querySelector('.gallery-container').innerHTML = strHtml
+    document.querySelector('.nav-gallery').classList.add('active')
+}
+
+function onMore() {
+    document.querySelector('.search-more').classList.toggle('block')
 }
 
 function onEditCurrMeme(idx) {
@@ -42,6 +62,7 @@ function onRenderCanvas(imgId) {
     document.querySelector('.gallery-container').style.display = 'none'
     document.querySelector('.about-container').style.display = 'none'
     document.querySelector('.meme-container').style.display = 'none'
+    document.querySelector('.search-container').style.display = 'none'
 }
 
 function onGetGalleryPage() {
@@ -50,6 +71,7 @@ function onGetGalleryPage() {
     document.querySelector('.gallery-container').style.display = 'grid'
     document.querySelector('.about-container').style.display = 'none'
     document.querySelector('.meme-container').style.display = 'none'
+    document.querySelector('.search-container').style.display = 'flex'
     document.querySelector('.nav-gallery').classList.add('active')
     document.querySelector('.nav-about').classList.remove('active')
     document.querySelector('.nav-memes').classList.remove('active')
@@ -62,6 +84,7 @@ function onGetMemePage() {
     document.querySelector('.gallery-container').style.display = 'none'
     document.querySelector('.about-container').style.display = 'none'
     document.querySelector('.meme-container').style.display = 'grid'
+    document.querySelector('.search-container').style.display = 'none'
     document.querySelector('.nav-memes').classList.add('active')
     document.querySelector('.nav-about').classList.remove('active')
     document.querySelector('.nav-gallery').classList.remove('active')
@@ -71,8 +94,9 @@ function onGetAboutPage() {
     restartMeme()
     document.querySelector('.canvas-container').style.display = 'none'
     document.querySelector('.gallery-container').style.display = 'none'
-    document.querySelector('.about-container').style.display = 'block'
+    document.querySelector('.about-container').style.display = 'flex'
     document.querySelector('.meme-container').style.display = 'none'
+    document.querySelector('.search-container').style.display = 'none'
     document.querySelector('.nav-about').classList.add('active')
     document.querySelector('.nav-memes').classList.remove('active')
     document.querySelector('.nav-gallery').classList.remove('active')

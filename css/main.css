@@ -33,6 +33,7 @@ body {
 
 .screen {
     position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
@@ -46,6 +47,10 @@ body {
 .menu-open .screen {
     opacity: 1;
     visibility: visible;
+}
+
+body.none-scroll {
+    overflow: hidden; 
 }
 
 /*** Layout ***/
@@ -75,7 +80,7 @@ ul {
 
 li {
     list-style: none;
-    margin: 5px;
+    margin: 20px;
     color: #ffffff;
     font-size: 1.1875rem;
 }
@@ -88,7 +93,53 @@ li:hover {
 li.active {
     color: #040a2c;
     cursor: pointer;
-    box-shadow: inset 0 -6px 0 #040a2c;
+    box-shadow: inset 0 -3px 0 #040a2c;
+}
+
+/*** Search ***/
+
+.search-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.search-by-typing {
+    position: relative;
+}
+
+.search-container input {
+    width: 260px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #040a2c;
+    text-align: center;
+    color: #000000;
+    font-size: 0.9rem;
+}
+
+.search-container img {
+    position: absolute;
+    top: 5px;
+    right: 2px;
+}
+
+.search-btn {
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.search-more {
+    display: none;
+}
+
+.search-more.block {
+    display: block;
 }
 
 /*** Gallery ***/
@@ -134,8 +185,20 @@ li.active {
 /*** About ***/
 
 .about-container {
-    display: none;
+    display: flex;
+    justify-content: space-evenly;
     padding: 40px 0;
+    background-color: #ffffff;
+    margin: 25px 15%;
+}
+
+.about-container img {
+    border-radius: 50%;
+    width: 20%;
+}
+
+.about-info {
+    width: 50%;
 }
 
 /*** Canvas ***/
@@ -334,6 +397,12 @@ a {
         margin-top: 20px;
         height: 450px;
     }
+
+    /*** search ***/
+
+    .search-container {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 500px) {
@@ -352,25 +421,72 @@ a {
         justify-self: center;
     }
 
-    /*** Gallery ***/
+    /*** Gallery & Memes ***/
 
-    .gallery-container img {
-        cursor: pointer;
+    .gallery-container img,
+    .meme-container img {
         width: 140px;
     }
 
-    .gallery-container {
-        display: grid;
+    .gallery-container,
+    .meme-container {
         grid-template-columns: repeat(auto-fill, 140px);
         grid-gap: 10px;
         padding: 30px 0;
     }
 
+    /*** Memes ***/
+
+    /* .meme-container img {
+        width: 140px;
+    }
+
+    .meme-container {
+        grid-template-columns: repeat(auto-fill, 140px);
+        grid-gap: 10px;
+        padding: 30px 0;
+    } */
+
+    /*** Nav ***/
+
     .hamburger {
         display: inline-block;
+        z-index: 2;
     }   
 
     .nav {
-        display: none;
+        visibility: hidden;
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: absolute;
+        z-index: 3;
+        right: 0;
+        top: 50px;
+        background-color: #ff7f00;
+        overflow: hidden;
+        width: 100vw;
+        height: 40vh;
+        box-shadow: -9px 16px 22px -12px rgba(0,0,0,0.75);    
+        transform: translate(100%, 0);
+        transition:  transform .8s, box-shadow .3s;
+        padding-right: 0px;
+        padding-left: 50px;
     }
+
+    .menu-open .nav {
+        transform: translate(0, 0);
+        /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6); */
+    }
+
+    li {
+        margin: 0;
+    }
+
+    
+    /*** search ***/
+
+    .search-container {
+        padding: 20px;
+    }
+
 }

@@ -5,84 +5,84 @@ var gSavedMemes
 const keyMemes = 'Memes'
 const keyImgs = 'Imgs'
 
-var gKeywords = {
-    'happy': 12,
-    'funny puk': 1
-}
+// var gKeywords = {
+//     'happy': 12,
+//     'funny puk': 1
+// }
 
 var gImgs = [
     {
         id: 1,
         url: 'img/1.jpg',
-        // keywords: ['happy']
+        keywords: ['politic', 'tramp', 'funny']
     }, {
         id: 2,
         url: 'img/2.jpg',
-        // keywords: ['happy']
+        keywords: ['happy', 'cute', 'love', 'dog', 'animal']
     }, {
         id: 3,
         url: 'img/3.jpg',
-        // keywords: ['happy']
+        keywords: ['happy', 'cute', 'love', 'dog', 'baby', 'animal', 'kid']
     }, {
         id: 4,
         url: 'img/4.jpg',
-        // keywords: ['happy']
+        keywords: ['happy', 'cute', 'cat', 'baby', 'animal', 'kid']
     }, {
         id: 5,
         url: 'img/5.jpg',
-        // keywords: ['happy']
+        keywords: ['happy', 'baby', 'funny', 'kid']
     }, {
         id: 6,
         url: 'img/6.jpg',
-        // keywords: ['happy']
+        keywords: ['movie', 'tv', 'celebrity']
     }, {
         id: 7,
         url: 'img/7.jpg',
-        // keywords: ['happy']
+        keywords: ['happy', 'baby', 'funny', 'kid']
     }, {
         id: 8,
         url: 'img/8.jpg',
-        // keywords: ['happy']
+        keywords: ['movie', 'celebrity']
     }, {
         id: 9,
         url: 'img/9.jpg',
-        // keywords: ['happy']
+        keywords: ['happy', 'baby', 'funny', 'evil', 'kid']
     }, {
         id: 10,
         url: 'img/10.jpg',
-        // keywords: ['happy']
+        keywords: ['politic', 'obama', 'funny']
     }, {
         id: 11,
         url: 'img/11.jpg',
-        // keywords: ['happy']
+        keywords: ['sport']
     }, {
         id: 12,
         url: 'img/12.jpg',
-        // keywords: ['happy']
+        keywords: ['honesty', 'justice']
     }, {
         id: 13,
         url: 'img/13.jpg',
-        // keywords: ['happy']
+        keywords: ['movie', 'celebrity']
     }, {
         id: 14,
         url: 'img/14.jpg',
-        // keywords: ['happy']
+        keywords: ['movie', 'celebrity']
     }, {
         id: 15,
         url: 'img/15.jpg',
-        // keywords: ['happy']
+        keywords: ['movie', 'celebrity']
     }, {
         id: 16,
         url: 'img/16.jpg',
-        // keywords: ['happy']
+        keywords: ['movie', 'celebrity']
     }, {
         id: 17,
         url: 'img/17.jpg',
-        // keywords: ['happy']
+        keywords: ['politic', 'putin', 'funny']
     }, {
         id: 19,
         url: 'img/18.jpg',
-        // keywords: ['happy']
+        keywords: ['movie', 'cartoon']
     }
 ]
 
