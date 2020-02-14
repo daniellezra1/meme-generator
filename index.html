@@ -31,8 +31,15 @@
 
     <div class="search-container container">
         <div class="search-by-typing">
-            <input type="text" placeholder="Search" onkeyup="onFilterMemes(value)">
-            <img src="../icons/search-icon.png">
+            <input type="text" list="meme-theme" placeholder="Search" onkeyup="onFilterMemes(value)">
+            <img src="icons/search-icon.png">
+            <datalist id="meme-theme">
+                <option value="funny">
+                <option value="celebrity">
+                <option value="politic">
+                <option value="cute">
+                <option value="animal">
+            </datalist>
         </div>
         <div>
             <button onclick="onFilterMemes('funny')" class="search-btn">funny</button>
@@ -49,7 +56,6 @@
                 <button onclick="onFilterMemes('love')" class="search-btn">love</button>
                 <button onclick="onFilterMemes('sport')" class="search-btn">sport</button>
                 <button onclick="onFilterMemes('kid')" class="search-btn">kid</button>
-                <br>
                 <button onclick="onFilterMemes('dog')" class="search-btn">dog</button>
                 <button onclick="onFilterMemes('cat')" class="search-btn">cat</button>
                 <button onclick="onFilterMemes('drinks')" class="search-btn">drinks</button>
@@ -123,6 +129,9 @@
                 <input name="img" id="imgData" type="hidden" />
                 <button class="control-btn share-btn" type="submit" onsubmit="uploadImg(this, event)">Share on
                     FB</button></form>
+
+            <!-- <button class="control-btn share-btn" id="imgData" onclick="onShareMeme(this, event)">Share on
+                FB</button> -->
         </div>
     </div>
 
@@ -131,8 +140,7 @@
         <div class="about-info">
             <h1>Monica Geller</h1>
             <p>is a fictional character, one of the six main characters who appears on the American sitcom Friends
-                (1994–2004).
-                Created by David Crane and Marta Kauffman</p>
+                (1994–2004).</p>
             <div class="about-contact">
                 <button title="Linkedin"><img src="icons/linkedin-logo.png" /></button>
                 <button title="Facebook"><img src="icons/facebook-logo.png" /></button>

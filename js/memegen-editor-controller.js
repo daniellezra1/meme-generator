@@ -10,33 +10,22 @@ function renderCanvas() {
 
     gCanvas = document.querySelector('#meme-canvas')
     gCtx = gCanvas.getContext('2d')
-    if (isMobileDevice() && gFirstLoad) resizeCanvas()
 
+    if (isMobileDevice() && gFirstLoad) resizeCanvas()
     if (gIsLocalImg) drawLocalImg(gLocalImg)
     else drawImg()
 
-    drawImg()
+    // drawImg()
     renderText()
 
     window.addEventListener('keydown', doKeyDown, true)
     addDragDrop()
 }
 
-function isMobileDevice() {
-    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
-}
-
-// function isMobileDevice() {
-//     return (window.innerWidth < 500)
-// }
-
 function resizeCanvas() {
-    gCanvas.width = 340
-    gCanvas.height = gCanvas.width
-    // gCanvas.width = window.innerWidth - 20
-    // gCanvas.height = window.innerWidth - 20
-    // changePosForMobile(window.innerWidth - 20)
-    changePosForMobile(330)
+    gCanvas.width = window.innerWidth - 15
+    gCanvas.height = window.innerWidth - 15
+    changePosForMobile(window.innerWidth - 15)
     document.querySelector('.meme-control').style.width = `"${window.innerWidth}px"`
     gFirstLoad = false
 }
@@ -62,7 +51,7 @@ function renderText() {
 }
 
 function drawText(line) {
-    // gCtx.lineWidth = '0.1'
+    gCtx.lineWidth = '1'
     gCtx.strokeStyle = line.OutlineColor
     gCtx.fillStyle = line.fillColor
     gCtx.font = `${line.size}px ${line.font}`
@@ -160,10 +149,28 @@ function doUploadImg(elForm, onSuccess) {
         })
 }
 
+function onShareMeme() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Come see my new Meme!',
+            url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+        }).then(() => {
+            console.log('Thanks for sharing!');
+        })
+            .catch(console.error);
+    } else {
+        // fallback
+    }
+}
+
+
+
+
 function onUploadImg(ev) {
     loadImageFromInput(ev, renderCanvas)
     gIsLocalImg = true
 }
+
 function loadImageFromInput(ev, onImageReady) {
     var reader = new FileReader();
 
@@ -174,7 +181,6 @@ function loadImageFromInput(ev, onImageReady) {
     }
     reader.readAsDataURL(ev.target.files[0]);
 }
-
 
 function onSaveToStorage() {
     const data = gCanvas.toDataURL()

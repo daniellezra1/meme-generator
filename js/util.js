@@ -1,3 +1,4 @@
+'use strict'
 
 // Local Storage
 
@@ -15,21 +16,27 @@ function loadFromStorage(key) {
 
 // Mobile Menu
 
-var openMenu = false
+mobileNav()
 
 function toggleMenu() {
     document.body.classList.toggle('menu-open')
     document.body.classList.toggle('none-scroll')
     document.querySelector('.menu-btn').classList.toggle('is-active')
+}
 
-    if (!openMenu) {
-        openMenu = true
-        document.querySelector('.nav').style.visibility = 'visible'
-        // body.style.overflow = 'hidden'
-    } else {
-        openMenu = false
-        document.querySelector('.nav').style.visibility = 'hidden'
-        // body.style.overflow = 'visible'
-
+function mobileNav() {
+    if (isMobileDevice()) {
+        const links = document.querySelectorAll('.nav li')
+        links.forEach(link => link.addEventListener('click', function () { setTimeout(toggleMenu, 500) }))
     }
 }
+
+// Mobile Device
+
+function isMobileDevice() {
+    return (window.innerWidth < 500)
+}
+
+// function isMobileDevice() {
+//     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
+// }

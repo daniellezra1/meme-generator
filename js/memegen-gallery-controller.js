@@ -60,8 +60,6 @@ function onRenderCanvas(imgId) {
     renderCanvas()
     document.querySelector('.canvas-container').style.display = "flex"
     document.querySelector('.gallery-container').style.display = "none"
-    // document.querySelector('.gallery-container').style.height = "0px"
-
     document.querySelector('.about-container').style.display = "none"
     document.querySelector('.meme-container').style.display = "none"
     document.querySelector('.search-container').style.display = "none"
@@ -74,6 +72,7 @@ function onGetGalleryPage() {
     document.querySelector('.about-container').style.display = "none"
     document.querySelector('.meme-container').style.display = "none"
     document.querySelector('.search-container').style.display = "flex"
+
     document.querySelector('.nav-gallery').classList.add('active')
     document.querySelector('.nav-about').classList.remove('active')
     document.querySelector('.nav-memes').classList.remove('active')
@@ -84,11 +83,10 @@ function onGetMemePage() {
     onRenderMemes()
     document.querySelector('.canvas-container').style.display = "none"
     document.querySelector('.gallery-container').style.display = "none"
-    // document.querySelector('.gallery-container').style.height = "0px"
-
     document.querySelector('.about-container').style.display = "none"
     document.querySelector('.meme-container').style.display = "grid"
     document.querySelector('.search-container').style.display = "none"
+
     document.querySelector('.nav-memes').classList.add('active')
     document.querySelector('.nav-about').classList.remove('active')
     document.querySelector('.nav-gallery').classList.remove('active')
@@ -98,11 +96,10 @@ function onGetAboutPage() {
     restartMeme()
     document.querySelector('.canvas-container').style.display = "none"
     document.querySelector('.gallery-container').style.display = "none"
-    // document.querySelector('.gallery-container').style.height = "0px"
-
     document.querySelector('.about-container').style.display = "flex"
     document.querySelector('.meme-container').style.display = "none"
     document.querySelector('.search-container').style.display = "none"
+
     document.querySelector('.nav-about').classList.add('active')
     document.querySelector('.nav-memes').classList.remove('active')
     document.querySelector('.nav-gallery').classList.remove('active')
