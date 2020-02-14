@@ -19,9 +19,7 @@
         <img class="logo" src="icons/logo.png" />
         <ul class="nav">
             <li class="nav-gallery" onclick="onGetGalleryPage()">Gallery</li>
-            <!-- <li> | </li> -->
             <li class="nav-memes" onclick="onGetMemePage()">Memes</li>
-            <!-- <li> | </li> -->
             <li class="nav-about" onclick="onGetAboutPage()">About</li>
         </ul>
         <button class="menu-btn hamburger hamburger--slider" type="button" onclick="toggleMenu()">
@@ -75,23 +73,35 @@
         <div class="meme-control">
             <input type="text" class="control-txt-input" value="" onkeyup="onChangeText(value)" title="Change Text">
             <div class="btn-group1">
-                <button class="control-btn" onclick="onSwitchLines()" title="Switch Text"><img src="icons/switch.png" /></button>
-                <button class="control-btn" onclick="onAddLine()" title="Add New Text"><img src="icons/add.png" /></button>
-                <button class="control-btn" onclick="onDeleteLine()" title="Delete Text"><img src="icons/trash.png" /></button>
+                <button class="control-btn" onclick="onSwitchLines()" title="Switch Text"><img
+                        src="icons/switch.png" /></button>
+                <button class="control-btn" onclick="onAddLine()" title="Add New Text"><img
+                        src="icons/add.png" /></button>
+                <button class="control-btn" onclick="onDeleteLine()" title="Delete Text"><img
+                        src="icons/trash.png" /></button>
                 <input type="file" id="file" class="inputfile" name="image" onchange="onUploadImg(event)" />
                 <label for="file">Upload image</label>
             </div>
             <div class="btn-group2">
-                <button class="control-btn" onclick="onChangePositionY(-2)" title="Move Up"><img src="icons/up.png" /></button>
-                <button class="control-btn" onclick="onChangePositionY(2)" title="Move Down"><img src="icons/down.png" /></button>
-                <button class="control-btn" onclick="onChangePositionX(-2)" title="Move Left"><img src="icons/left.png" /></button>
-                <button class="control-btn" onclick="onChangePositionX(2)" title="Move Rigth"><img src="icons/rigth.png" /></button>
+                <button class="control-btn" onclick="onChangePositionY(-2)" title="Move Up"><img
+                        src="icons/up.png" /></button>
+                <button class="control-btn" onclick="onChangePositionY(2)" title="Move Down"><img
+                        src="icons/down.png" /></button>
+                <button class="control-btn" onclick="onChangePositionX(-2)" title="Move Left"><img
+                        src="icons/left.png" /></button>
+                <button class="control-btn" onclick="onChangePositionX(2)" title="Move Rigth"><img
+                        src="icons/rigth.png" /></button>
             </div>
-            <button class="control-btn" onclick="onChangeSize(1)" title="Increase Text"><img src="icons/increase-font.png" /></button>
-            <button class="control-btn" onclick="onChangeSize(-1)" title="Decrease Text"><img src="icons/decrease-font.png" /></button>
-            <button class="control-btn" onclick="onChangeAlign('right')" title="Align Left"><img src="icons/align-to-left.png" /></button>
-            <button class="control-btn" onclick="onChangeAlign('center')" title="Align Center"><img src="icons/align-center.png" /></button>
-            <button class="control-btn" onclick="onChangeAlign('left')" title="Align Right"><img src="icons/align-to-right.png" /></button>
+            <button class="control-btn" onclick="onChangeSize(1)" title="Increase Text"><img
+                    src="icons/increase-font.png" /></button>
+            <button class="control-btn" onclick="onChangeSize(-1)" title="Decrease Text"><img
+                    src="icons/decrease-font.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('right')" title="Align Left"><img
+                    src="icons/align-to-left.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('center')" title="Align Center"><img
+                    src="icons/align-center.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('left')" title="Align Right"><img
+                    src="icons/align-to-right.png" /></button>
             <select class="control-select" onchange="onChangeFont(value)" title="Choose Font">
                 <option>Impact</option>
                 <option>Montserrat</option>
@@ -99,13 +109,16 @@
                 <option>Sacramento</option>
             </select>
             <button class="control-btn">
-                <input class="control-color-input" type="color" onchange="onChangeOutlineColor(value)" title="Choose Outline color" />
+                <input class="control-color-input" type="color" onchange="onChangeOutlineColor(value)"
+                    title="Choose Outline color" />
                 <img src="icons/text-stroke.png"></button>
             <button class="control-btn">
-                <input class="control-color-input" type="color" onchange="onChangeFillColor(value)" title="Choose color" />
+                <input class="control-color-input" type="color" onchange="onChangeFillColor(value)"
+                    title="Choose color" />
                 <img src="icons/paint-board-and-brush.png"></button>
             <button class="control-btn save-btn" onclick="onSaveToStorage()">Save</button>
-            <button class="control-btn download-btn"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
+            <button class="control-btn download-btn"><a href="#" onclick="onDownloadCanvas(this)"
+                    download="">Download</a></button>
             <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                 <input name="img" id="imgData" type="hidden" />
                 <button class="control-btn share-btn" type="submit" onsubmit="uploadImg(this, event)">Share on
@@ -114,16 +127,16 @@
     </div>
 
     <div class="about-container container">
-        <img src="img/mon.jpg">
+        <img class="about-img" src="img/mon.jpg">
         <div class="about-info">
             <h1>Monica Geller</h1>
             <p>is a fictional character, one of the six main characters who appears on the American sitcom Friends
                 (1994–2004).
                 Created by David Crane and Marta Kauffman</p>
             <div class="about-contact">
-                <button></button>
-                <button></button>
-                <button></button>
+                <button title="Linkedin"><img src="icons/linkedin-logo.png" /></button>
+                <button title="Facebook"><img src="icons/facebook-logo.png" /></button>
+                <button title="Github"><img src="icons/github-logo.png" /></button>
             </div>
         </div>
     </div>

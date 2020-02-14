@@ -6,6 +6,11 @@
 }
 
 @font-face {
+    font-family: Montserrat-bold;
+    src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
     font-family: Pacifico;
     src: url(../fonts/Pacifico/Pacifico-Regular.ttf);
 }
@@ -25,6 +30,7 @@
 
 body {
     margin: 0;
+    /* background-color: #e3e3e3; */
 }
 
 .logo {
@@ -185,20 +191,36 @@ li.active {
 /*** About ***/
 
 .about-container {
-    display: flex;
-    justify-content: space-evenly;
+    display: none;
+    align-items: center;
     padding: 40px 0;
     background-color: #ffffff;
     margin: 25px 15%;
 }
 
-.about-container img {
-    border-radius: 50%;
-    width: 20%;
+.about-img {
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    margin: 0 60px;
 }
 
-.about-info {
-    width: 50%;
+.about-info h1 {
+    font-family: Montserrat-bold;
+    font-size: 1.5rem;
+}
+
+.about-info p {
+    font-size: 1.1rem;
+}
+
+.about-contact button {
+    width: 39px;
+    height: 39px;
+    border: none;
+    border-radius: 12px;
+    background-color: #ff7f00;
+    cursor: pointer;
 }
 
 /*** Canvas ***/
@@ -229,7 +251,7 @@ canvas {
 .control-txt-input {
     grid-column: 1 / 6;
     grid-row: 1 / 2;
-    justify-self: left;
+    /* justify-self: left; */
     width: 373px;
     height: 60px;
     border: none;
@@ -268,13 +290,13 @@ canvas {
     grid-auto-rows: 1fr;
 }
 
-.btn-group1 .control-btn,
+/* .btn-group1 .control-btn,
 .btn-group2 .control-btn {
     justify-self: center;
-}
+} */
 
 .control-btn {
-    justify-self: left;
+    justify-self: center;
     width: 60px;
     height: 60px;
     border: none;
@@ -286,7 +308,7 @@ canvas {
 .control-select {
     grid-column: 1 / 4;
     grid-row: 5 / 6;
-    justify-self: left;
+    /* justify-self: left; */
     width: 218px;
     height: 60px;
     border: none;
@@ -366,12 +388,10 @@ a {
 
 }
 
-
-/*** About ***/
-
 /*** Footer ***/
 
 .footer-container {
+    position: static;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -379,29 +399,49 @@ a {
     background-color: #ff7f00;
     color: #ffffff;
     height: 180px;
+    width: 100%;
+    margin: 0 auto;
     font-size: 19px;
+    padding-bottom: 0 !important;
 }
 
 @media (max-width: 920px) {
+
     /*** Canvas ***/
 
     .canvas-container {
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
         justify-content: space-between;
     }
 
     /*** Control ***/
 
     .meme-control {
+        margin: 0 auto;
         margin-top: 20px;
         height: 450px;
+        width: 380px;
+
     }
 
     /*** search ***/
 
     .search-container {
         flex-direction: column;
+    }
+
+        /*** About ***/
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img {
+        border-radius: 100%;
+        width: 200px;
+        height: 200px;
     }
 }
 
@@ -410,11 +450,24 @@ a {
     .container{
         padding: 0 15px;
     }
+
+    /*** search ***/
+
+
+    .search-container {
+        padding: 40px 0;
+    }
+
+    /*** About ***/
+
+    .about-container {
+        padding: 40px 0;
+    }
     
     /*** Control ***/
 
     .canvas-container {
-        padding: 30px 0;
+        padding: 40px 0;
     }
 
     .control-btn {
@@ -432,20 +485,8 @@ a {
     .meme-container {
         grid-template-columns: repeat(auto-fill, 140px);
         grid-gap: 10px;
-        padding: 30px 0;
+        padding: 40px 0;
     }
-
-    /*** Memes ***/
-
-    /* .meme-container img {
-        width: 140px;
-    }
-
-    .meme-container {
-        grid-template-columns: repeat(auto-fill, 140px);
-        grid-gap: 10px;
-        padding: 30px 0;
-    } */
 
     /*** Nav ***/
 
@@ -489,4 +530,16 @@ a {
         padding: 20px;
     }
 
+}
+
+
+
+footer:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+    height: 0;
+    font-size: 0;
 }

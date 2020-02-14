@@ -7,27 +7,36 @@ var gIsLocalImg = false
 var gLocalImg
 
 function renderCanvas() {
+
     gCanvas = document.querySelector('#meme-canvas')
     gCtx = gCanvas.getContext('2d')
-
     if (isMobileDevice() && gFirstLoad) resizeCanvas()
 
     if (gIsLocalImg) drawLocalImg(gLocalImg)
     else drawImg()
 
+    drawImg()
     renderText()
+
     window.addEventListener('keydown', doKeyDown, true)
     addDragDrop()
 }
 
 function isMobileDevice() {
-    return (window.innerWidth < 500)
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
 }
 
+// function isMobileDevice() {
+//     return (window.innerWidth < 500)
+// }
+
 function resizeCanvas() {
-    gCanvas.width = window.innerWidth - 20
-    gCanvas.height = window.innerWidth - 20
-    changePosForMobile(window.innerWidth - 20)
+    gCanvas.width = 340
+    gCanvas.height = gCanvas.width
+    // gCanvas.width = window.innerWidth - 20
+    // gCanvas.height = window.innerWidth - 20
+    // changePosForMobile(window.innerWidth - 20)
+    changePosForMobile(330)
     document.querySelector('.meme-control').style.width = `"${window.innerWidth}px"`
     gFirstLoad = false
 }
