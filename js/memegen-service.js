@@ -5,10 +5,26 @@ var gSavedMemes
 const keyMemes = 'Memes'
 const keyImgs = 'Imgs'
 
-// var gKeywords = {
-//     'happy': 12,
-//     'funny puk': 1
-// }
+var gKeywords = {
+    'happy': 12,
+    'funny': 1,
+    'celebrity': 7,
+    'politic': 2,
+    'cute': 12,
+    'animal': 1,
+    'books': 0,
+    'comics': 6,
+    'cartoon': 0,
+    'baby': 1,
+    'love': 7,
+    'sport': 2,
+    'kid': 12,
+    'dog': 2,
+    'cat': 2,
+    'drinks': 0,
+    'movie': 4,
+    'tv': 7,
+}
 
 var gImgs = [
     {
@@ -235,6 +251,10 @@ function getStickers() {
     return gStickers
 }
 
+function getKeywords() {
+    return gKeywords
+}
+
 function updateMemeImg(imgId) {
     gMeme.selectedImgId = imgId
 }
@@ -418,4 +438,8 @@ function restartMeme() {
 
 function editCurrMeme(idx) {
     gMeme = gSavedMemes[idx]
+}
+
+function addClickToKeyword(txt) {
+    gKeywords[txt]++
 }

@@ -47,13 +47,11 @@ body {
     background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: opacity .3s;
-    /* visibility: hidden; */
 }
 
 .menu-open .screen {
     display: block;
     opacity: 1;
-    /* visibility: visible; */
 }
 
 body.none-scroll {
@@ -138,7 +136,7 @@ li.active {
     border: none;
     background-color: #ffffff;
     cursor: pointer;
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
 }
 
 .search-more {
@@ -151,6 +149,10 @@ li.active {
 
 input::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+.search-by-keywords {
+    width: 50%;
 }
 
 /*** Gallery ***/
@@ -437,6 +439,10 @@ a {
         flex-direction: column;
     }
 
+    .search-by-keywords {
+        width: 80%;
+    }
+
         /*** About ***/
 
     .about-container {
@@ -459,9 +465,8 @@ a {
 
     /*** search ***/
 
-
     .search-container {
-        padding: 40px 0;
+        padding: 30px 0;
     }
 
     /*** About ***/
@@ -501,7 +506,6 @@ a {
         z-index: 2;
     }   
 
-
     .nav {
         display: none;
         flex-direction: column;
@@ -524,12 +528,5 @@ a {
 
     li {
         margin: 0;
-    }
-
-    
-    /*** search ***/
-
-    .search-container {
-        padding: 20px;
     }
 }

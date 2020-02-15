@@ -423,8 +423,6 @@ function drawStickers() {
     })
 }
 
-
-
 var gCurrPage = 1
 var gStickersInPage = 3
 
