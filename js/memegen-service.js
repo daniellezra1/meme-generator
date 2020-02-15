@@ -93,8 +93,8 @@ var gStickers = [
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 32,
+        width: 85
 
     }, {
         id: 2,
@@ -102,88 +102,88 @@ var gStickers = [
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 42,
+        width: 103
     }, {
         id: 3,
         url: 'stickers/3.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 71,
+        width: 74
     }, {
         id: 4,
         url: 'stickers/4.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 102,
+        width: 102
     }, {
         id: 5,
         url: 'stickers/5.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 74,
+        width: 82
     }, {
         id: 6,
         url: 'stickers/6.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 92,
+        width: 62
     }, {
         id: 7,
         url: 'stickers/7.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 85,
+        width: 49
     }, {
         id: 8,
         url: 'stickers/8.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 68,
+        width: 77
     }, {
         id: 9,
         url: 'stickers/9.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 68,
+        width: 70
     }, {
         id: 10,
         url: 'stickers/10.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 71,
+        width: 75
     }, {
         id: 11,
         url: 'stickers/11.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 53,
+        width: 75
     }, {
         id: 12,
         url: 'stickers/12.png',
         positionX: 225,
         positionY: 225,
         isDragging: false,
-        height: 0,
-        width: 0
+        height: 58,
+        width: 64
     }
 ]
 
@@ -418,9 +418,4 @@ function restartMeme() {
 
 function editCurrMeme(idx) {
     gMeme = gSavedMemes[idx]
-}
-
-function addSizedToStickers(stickerId, width, height) {
-    gStickers[stickerId - 1].width = width
-    gStickers[stickerId - 1].height = height
 }

@@ -3,7 +3,6 @@
 var gCanvas
 var gCtx
 var gFirstLoad = true
-var gFirstLoadStickers = true
 var gIsLocalImg = false
 var gLocalImg
 var gNoFocus = false
@@ -391,17 +390,6 @@ function onRenderStickers() {
     })
     strHtml += '</div><button class="stickers-btn" onclick="onChangePage(1)"><img src="icons/stickers-rigth.png"></button>'
     document.querySelector('.stickers-div').innerHTML = strHtml
-    onAddSizedToStickers()
-}
-
-function onAddSizedToStickers() {
-    var stickers = getStickers()
-    stickers.forEach(sticker => {
-        var width = document.querySelector(`#sticker-num-${sticker.id}`).width
-        var height = document.querySelector(`#sticker-num-${sticker.id}`).height
-        if (gFirstLoadStickers) addSizedToStickers(sticker.id, width, height)
-    })
-    gFirstLoadStickers = false
     onAddStickersInPage()
 }
 

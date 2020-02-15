@@ -1,0 +1,122 @@
+[33mcommit f10a4de92495613f35e8e1a4860ad332dd519f33[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 4b9935a e90084e
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Sat Feb 15 16:55:19 2020 +0200
+
+    wip
+
+[33mcommit 4b9935a6af3828955634e272fb371d8820536efc[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Sat Feb 15 16:37:20 2020 +0200
+
+    V12
+
+[33mcommit e90084ea859494ee395700664cc0efbf4cbbf238[m
+Author: daniellezra1 <47479546+daniellezra1@users.noreply.github.com>
+Date:   Sat Feb 15 01:45:41 2020 +0200
+
+    Update memegen-editor-controller.js
+
+[33mcommit f524662acc869dc2e9e462be6140c9ddc8226583[m
+Merge: 4980fac 6b3e0e0
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Sat Feb 15 01:39:46 2020 +0200
+
+    V11
+
+[33mcommit 4980fac171adacc086477eb5d412fd578662253c[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Sat Feb 15 01:34:17 2020 +0200
+
+    V11
+
+[33mcommit 6b3e0e0b0883242b25bbc66868055e390375e1e2[m
+Author: daniellezra1 <47479546+daniellezra1@users.noreply.github.com>
+Date:   Fri Feb 14 13:00:55 2020 +0200
+
+    Update index.html
+
+[33mcommit c71a8c26dadd360840a00026a4c4db50de903272[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Fri Feb 14 12:52:38 2020 +0200
+
+    V10
+
+[33mcommit 27a1dad9dcfab6220b80ba89c1a522006e1f4043[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Thu Feb 13 19:59:07 2020 +0200
+
+    V9
+
+[33mcommit 0b437a1d1c314982cde0d1dc94df85a1d00c969f[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Thu Feb 13 16:43:15 2020 +0200
+
+    V9
+
+[33mcommit 663aa9fd727d48dc87a7164a744d6bef6603a6c2[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Thu Feb 13 12:17:55 2020 +0200
+
+    V8
+
+[33mcommit fccf58dcc8481559ce01d13402d6ac6a4dfce5cf[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Thu Feb 13 09:52:12 2020 +0200
+
+    V7
+
+[33mcommit e81d8e404c05a5c43b78a52a905aa82570e5a458[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Thu Feb 13 00:00:20 2020 +0200
+
+    V6
+
+[33mcommit 37086a76fc678b721d7e5bd33c0bfcc71a35c4d3[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Wed Feb 12 22:42:05 2020 +0200
+
+    V6
+
+[33mcommit b9912d173a30507702300f450b8619f6e0e287dc[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Wed Feb 12 22:29:01 2020 +0200
+
+    V5
+
+[33mcommit 16cfb8a89643270c6f50e338e064c7c41bcdba27[m
+Merge: 718f5a5 fe9ac91
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Wed Feb 12 22:08:51 2020 +0200
+
+    Merge branch 'master' of https://github.com/daniellezra1/memegen
+
+[33mcommit 718f5a57f379506e605adf565fba7c6602ea0e8c[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Wed Feb 12 22:05:43 2020 +0200
+
+    V4
+
+[33mcommit fe9ac916ad9c783a3d69a8c6dbc5ea926c6c9ac7[m
+Author: daniellezra1 <47479546+daniellezra1@users.noreply.github.com>
+Date:   Wed Feb 12 19:12:34 2020 +0200
+
+    Update index.html
+
+[33mcommit d4a23fdc96bfa3f954d5b1911999d34e5c8a4de7[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Wed Feb 12 19:08:39 2020 +0200
+
+    V3
+
+[33mcommit 6775a6dc357c5aea3681300c9d316c9480fcd639[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Wed Feb 12 18:35:56 2020 +0200
+
+    V2
+
+[33mcommit ff8845acd38e95c8569a4b6b03833aaf3fd7d3db[m
+Author: Danielle Ezra <daniellezra1@gmail.com>
+Date:   Wed Feb 12 17:23:56 2020 +0200
+
+    V1
