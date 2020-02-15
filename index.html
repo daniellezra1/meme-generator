@@ -31,20 +31,17 @@
 
     <div class="search-container container">
         <div class="search-by-typing">
-            <<<<<<< HEAD <input type="text" list="meme-theme" placeholder="Search" onkeyup="onFilterMemes(value)">
-                <img src="icons/search-icon.png">
-                <datalist id="meme-theme">
-                    <option value="funny">
-                    <option value="celebrity">
-                    <option value="politic">
-                    <option value="cute">
-                    <option value="animal">
-                </datalist>
-                =======
-                <input type="text" placeholder="Search" onkeyup="onFilterMemes(value)">
-                <img src="icons/search-icon.png">
-                >>>>>>> 6b3e0e0b0883242b25bbc66868055e390375e1e2
+            <input type="text" list="meme-theme" placeholder="Enter search keyword" onkeyup="onFilterMemes(value)">
+            <img src="icons/search-icon.png">
+            <datalist id="meme-theme">
+                <option value="funny">
+                <option value="celebrity">
+                <option value="politic">
+                <option value="cute">
+                <option value="animal">
+            </datalist>
         </div>
+
         <div>
             <button onclick="onFilterMemes('funny')" class="search-btn">funny</button>
             <button onclick="onFilterMemes('celebrity')" class="search-btn">celebrity</button>
@@ -92,16 +89,6 @@
                 <input type="file" id="file" class="inputfile" name="image" onchange="onUploadImg(event)" />
                 <label for="file">Upload image</label>
             </div>
-            <div class="btn-group2">
-                <button class="control-btn" onclick="onChangePositionY(-2)" title="Move Up"><img
-                        src="icons/up.png" /></button>
-                <button class="control-btn" onclick="onChangePositionY(2)" title="Move Down"><img
-                        src="icons/down.png" /></button>
-                <button class="control-btn" onclick="onChangePositionX(-2)" title="Move Left"><img
-                        src="icons/left.png" /></button>
-                <button class="control-btn" onclick="onChangePositionX(2)" title="Move Rigth"><img
-                        src="icons/rigth.png" /></button>
-            </div>
             <button class="control-btn" onclick="onChangeSize(1)" title="Increase Text"><img
                     src="icons/increase-font.png" /></button>
             <button class="control-btn" onclick="onChangeSize(-1)" title="Decrease Text"><img
@@ -133,9 +120,7 @@
                 <input name="img" id="imgData" type="hidden" />
                 <button class="control-btn share-btn" type="submit" onsubmit="uploadImg(this, event)">Share on
                     FB</button></form>
-
-            <!-- <button class="control-btn share-btn" id="imgData" onclick="onShareMeme(this, event)">Share on
-                FB</button> -->
+            <div class="stickers-div"></div>
         </div>
     </div>
 

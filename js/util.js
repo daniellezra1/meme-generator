@@ -34,9 +34,6 @@ function mobileNav() {
 // Mobile Device
 
 function isMobileDevice() {
-    return (window.innerWidth < 500)
+    return (window.innerWidth < 500 &&
+        (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1))
 }
-
-// function isMobileDevice() {
-//     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
-// }

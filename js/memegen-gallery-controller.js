@@ -58,6 +58,7 @@ function onEditCurrMeme(idx) {
 function onRenderCanvas(imgId) {
     updateMemeImg(imgId)
     renderCanvas()
+    onRenderStickers()
     document.querySelector('.canvas-container').style.display = "flex"
     document.querySelector('.gallery-container').style.display = "none"
     document.querySelector('.about-container').style.display = "none"
