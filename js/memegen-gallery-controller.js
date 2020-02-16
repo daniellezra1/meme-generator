@@ -17,6 +17,12 @@ function onRenderGallery() {
     document.querySelector('.about-container').style.display = 'none'
 }
 
+function onSetLang(lang) {
+    setLang(lang)
+    if (lang === 'he') document.body.classList.add('rtl')
+    else document.body.classList.remove('rtl')
+}
+
 function onRenderMemes() {
     var savedImgs = getSavedImgs()
     var id = 0
@@ -35,19 +41,19 @@ function onRenderKeywords() {
     var idx = 0
     for (var keyword in keywords) {
         var fontSize = 16 + keywords[keyword]
-        strHtml += `<button onclick="onFilterMemes('${keyword}', true)" class="search-btn ${keyword}" style="border: none;text-decoration: none;font-size:${fontSize}px">${keyword}</button>`
+        strHtml += `<button onclick="onFilterMemes('${keyword}', true)" data-trans="${keyword}" class="search-btn ${keyword}" style="border: none;text-decoration: none;font-size:${fontSize}px">${keyword}</button>`
         idx++
         if (idx === 5) {
-            strHtml += `<button onclick="onMore()" class="search-btn" style="text-decoration: underline;">more...</button>
+            strHtml += `<button onclick="onMore()" class="search-btn" data-trans="more" style="text-decoration: underline;">more...</button>
                         <div class="search-more">`
         }
     }
     strHtml += `</div>`
     document.querySelector('.search-by-keywords').innerHTML = strHtml
+    doTrans()
 }
 
 function onFilterMemes(txt, isKeyword = false) {
-    // if (!txt) onRenderGallery()
     var imgs = getImges()
     var newImgs = imgs.filter(img => {
         var keywords = img.keywords
@@ -63,15 +69,15 @@ function onFilterMemes(txt, isKeyword = false) {
     document.querySelector('.nav-gallery').classList.add('active')
     if (isKeyword) addClickToKeyword(txt)
     onRenderKeywords()
-    if (open) document.querySelector('.search-more').classList.toggle('block')
+    if (openKeywords) document.querySelector('.search-more').classList.toggle('block')
 }
 
-var open = false
+var openKeywords = false
 
 function onMore() {
     document.querySelector('.search-more').classList.toggle('block')
-    if (!open) open = true
-    else open = false
+    if (!openKeywords) openKeywords = true
+    else openKeywords = false
 }
 
 function onEditCurrMeme(idx) {
@@ -84,6 +90,7 @@ function onRenderCanvas(imgId) {
     updateMemeImg(imgId)
     renderCanvas()
     onRenderStickers()
+    gFirstLoad = true
     document.querySelector('.canvas-container').style.display = "flex"
     document.querySelector('.gallery-container').style.display = "none"
     document.querySelector('.about-container').style.display = "none"
@@ -93,6 +100,9 @@ function onRenderCanvas(imgId) {
 
 function onGetGalleryPage() {
     restartMeme()
+    gFirstLoad = true
+    gFocustxt = true
+    gFocusSticker = false
     document.querySelector('.canvas-container').style.display = "none"
     document.querySelector('.gallery-container').style.display = "grid"
     document.querySelector('.about-container').style.display = "none"
@@ -107,6 +117,9 @@ function onGetGalleryPage() {
 function onGetMemePage() {
     restartMeme()
     onRenderMemes()
+    gFirstLoad = true
+    gFocustxt = true
+    gFocusSticker = false
     document.querySelector('.canvas-container').style.display = "none"
     document.querySelector('.gallery-container').style.display = "none"
     document.querySelector('.about-container').style.display = "none"
@@ -120,6 +133,7 @@ function onGetMemePage() {
 
 function onGetAboutPage() {
     restartMeme()
+    gFirstLoad = true
     document.querySelector('.canvas-container').style.display = "none"
     document.querySelector('.gallery-container').style.display = "none"
     document.querySelector('.about-container').style.display = "flex"

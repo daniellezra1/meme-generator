@@ -96,8 +96,36 @@ var gImgs = [
         url: 'img/17.jpg',
         keywords: ['politic', 'putin', 'funny']
     }, {
-        id: 19,
+        id: 18,
         url: 'img/18.jpg',
+        keywords: ['movie', 'cartoon']
+    }, {
+        id: 19,
+        url: 'img/19.jpg',
+        keywords: ['movie', 'cartoon']
+    }, {
+        id: 20,
+        url: 'img/20.jpg',
+        keywords: ['movie', 'cartoon']
+    }, {
+        id: 21,
+        url: 'img/21.jpg',
+        keywords: ['movie', 'cartoon']
+    }, {
+        id: 22,
+        url: 'img/22.jpg',
+        keywords: ['movie', 'cartoon']
+    }, {
+        id: 23,
+        url: 'img/23.jpg',
+        keywords: ['movie', 'cartoon']
+    }, {
+        id: 24,
+        url: 'img/24.jpg',
+        keywords: ['movie', 'cartoon']
+    }, {
+        id: 25,
+        url: 'img/25.jpg',
         keywords: ['movie', 'cartoon']
     }
 ]
@@ -214,7 +242,7 @@ var gMeme = {
         align: 'center',
         OutlineColor: 'black',
         fillColor: 'white',
-        positionX: 225,
+        positionX: 250,
         positionY: 50,
         isDragging: false
     }, {
@@ -224,7 +252,7 @@ var gMeme = {
         align: 'center',
         OutlineColor: 'black',
         fillColor: 'white',
-        positionX: 225,
+        positionX: 250,
         positionY: 430,
         isDragging: false
     }],
@@ -263,29 +291,41 @@ function getSelectedImg() {
     return gMeme.selectedImgId
 }
 
-function changeText(txt) {
+function editMeme(key, value) {
     if (gMeme.lines.length === 0) return
     const lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].txt = txt
+    gMeme.lines[lineIdx][key] = value
 }
 
-function changeAlign(align) {
-    if (gMeme.lines.length === 0) return
-    const lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].align = align
-}
+// function changeText(txt) {
+//     if (gMeme.lines.length === 0) return
+//     const lineIdx = gMeme.selectedLineIdx
+//     gMeme.lines[lineIdx].txt = txt
+// }
 
-function changeOutlineColor(color) {
-    if (gMeme.lines.length === 0) return
-    const lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].OutlineColor = color
-}
+// function changeAlign(align) {
+//     if (gMeme.lines.length === 0) return
+//     const lineIdx = gMeme.selectedLineIdx
+//     gMeme.lines[lineIdx].align = align
+// }
 
-function changeFillColor(color) {
-    if (gMeme.lines.length === 0) return
-    const lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].fillColor = color
-}
+// function changeOutlineColor(color) {
+//     if (gMeme.lines.length === 0) return
+//     const lineIdx = gMeme.selectedLineIdx
+//     gMeme.lines[lineIdx].OutlineColor = color
+// }
+
+// function changeFillColor(color) {
+//     if (gMeme.lines.length === 0) return
+//     const lineIdx = gMeme.selectedLineIdx
+//     gMeme.lines[lineIdx].fillColor = color
+// }
+
+// function changeFont(font) {
+//     if (gMeme.lines.length === 0) return
+//     const lineIdx = gMeme.selectedLineIdx
+//     gMeme.lines[lineIdx].font = font
+// }
 
 function changeSize(num) {
     if (gFocustxt) {
@@ -301,10 +341,11 @@ function changeSize(num) {
     }
 }
 
-function changeFont(font) {
-    if (gMeme.lines.length === 0) return
-    const lineIdx = gMeme.selectedLineIdx
-    gMeme.lines[lineIdx].font = font
+function changePosTexts(width, height) {
+    gMeme.lines.forEach(line => {
+        line.positionX = (width / 2)
+        if (line.positionY > height) line.positionY = (height - 20)
+    })
 }
 
 function changePosForMobile(pos) {
@@ -313,7 +354,6 @@ function changePosForMobile(pos) {
         if (line.positionY > pos - 20) line.positionY = (pos - 20)
     })
 }
-
 
 function changePositionY(num) {
     if (gFocustxt) {
@@ -384,7 +424,6 @@ function addLine() {
 }
 
 function addSticker(sticker) {
-    console.log(sticker)
     gMeme.stickers.push(sticker)
     gMeme.selectedStickerIdx = gMeme.stickers.length - 1
 }

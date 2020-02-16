@@ -27,7 +27,10 @@ function toggleMenu() {
 function mobileNav() {
     if (isMobileDevice()) {
         const links = document.querySelectorAll('.nav li')
-        links.forEach(link => link.addEventListener('click', function () { setTimeout(toggleMenu, 500) }))
+        links.forEach(link => {
+            if (link === document.querySelector('.nav-lang')) return
+            else link.addEventListener('click', function () { setTimeout(toggleMenu, 500) })
+        })
     }
 }
 

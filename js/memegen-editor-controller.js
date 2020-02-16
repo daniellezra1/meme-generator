@@ -17,27 +17,34 @@ function renderCanvas() {
     gCanvas = document.querySelector('#meme-canvas')
     gCtx = gCanvas.getContext('2d')
 
-    if (isMobileDevice() && gFirstLoad) resizeCanvas()
+    if (gFirstLoad) resizeCanvas()
+
     if (gIsLocalImg) drawLocalImg(gLocalImg)
     else drawImg()
 
     if (!gNoFocus) drawFocusRect()
     else gNoFocus = false
 
-
     renderText()
     drawStickers()
-
     addDragDrop()
-
     onChangePage(0)
 }
 
 function resizeCanvas() {
-    gCanvas.width = window.innerWidth - 15
-    gCanvas.height = window.innerWidth - 15
-    changePosForMobile(window.innerWidth - 15)
-    document.querySelector('.meme-control').style.width = `"${window.innerWidth}px"`
+    var imgId = getSelectedImg()
+    var elImg = document.querySelector(`#img-num-${imgId}`)
+    var ratio = elImg.width / elImg.height
+
+    if (isMobileDevice()) {
+        gCanvas.width = window.innerWidth - 15
+        gCanvas.height = (gCanvas.width / ratio)
+        document.querySelector('.meme-control').style.width = `"${window.innerWidth}px"`
+    } else {
+        gCanvas.width = 500
+        gCanvas.height = (gCanvas.width / ratio)
+    }
+    changePosTexts(gCanvas.width, gCanvas.height)
     gFirstLoad = false
 }
 
@@ -99,24 +106,28 @@ function drawFocusRect() {
 }
 
 function onChangeText(txt) {
-    changeText(txt)
+    editMeme('txt', txt)
+    // changeText(txt)
     gFocustxt = true
     gFocusSticker = false
     renderCanvas()
 }
 
 function onChangeAlign(align) {
-    changeAlign(align)
+    editMeme('align', align)
+    // changeAlign(align)
     renderCanvas()
 }
 
 function onChangeOutlineColor(value) {
-    changeOutlineColor(value)
+    editMeme('OutlineColor', value)
+    // changeOutlineColor(value)
     renderCanvas()
 }
 
 function onChangeFillColor(value) {
-    changeFillColor(value)
+    editMeme('fillColor', value)
+    // changeFillColor(value)
     renderCanvas()
 }
 
@@ -126,7 +137,8 @@ function onChangeSize(num) {
 }
 
 function onChangeFont(font) {
-    changeFont(font)
+    editMeme('font', font)
+    // changeFont(font)
     renderCanvas()
 }
 
