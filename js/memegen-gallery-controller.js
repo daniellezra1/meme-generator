@@ -67,7 +67,10 @@ function onFilterMemes(txt, isKeyword = false) {
     })
     document.querySelector('.gallery-container').innerHTML = strHtml
     document.querySelector('.nav-gallery').classList.add('active')
-    if (isKeyword) addClickToKeyword(txt)
+    if (isKeyword) {
+        document.querySelector('input').value = txt
+        addClickToKeyword(txt)
+    }
     onRenderKeywords()
     if (openKeywords) document.querySelector('.search-more').classList.toggle('block')
 }

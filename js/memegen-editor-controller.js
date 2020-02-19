@@ -83,7 +83,7 @@ function drawText(line) {
 function drawFocusRect() {
     var meme = getMeme()
     if (gFocustxt) {
-        if (gMeme.lines.length === 0) return
+        if (meme.lines.length === 0) return
         var line = meme.lines[meme.selectedLineIdx]
         var posX = line.positionX
         var posY = line.positionY
@@ -415,13 +415,21 @@ function onAddStickersInPage() {
 
 
 function drawSticker(stickerId) {
-    var stickers = getStickers()
-    var sticker = stickers[stickerId - 1]
-    var elSticker = document.querySelector(`#sticker-num-${stickerId}`)
-    gCtx.drawImage(elSticker, sticker.positionX, sticker.positionY)
-    addSticker(sticker)
-    gFocusSticker = true
-    gFocustxt = false
+    var meme = getMeme()
+    var isStickerExist = meme.stickers.find(sticker => sticker.id === stickerId)
+    if (isStickerExist) {
+        switchStickers(stickerId)
+        gFocustxt = false
+        gFocusSticker = true
+    } else {
+        var stickers = getStickers()
+        var sticker = stickers[stickerId - 1]
+        var elSticker = document.querySelector(`#sticker-num-${stickerId}`)
+        gCtx.drawImage(elSticker, sticker.positionX, sticker.positionY)
+        addSticker(sticker)
+        gFocusSticker = true
+        gFocustxt = false
+    }
     renderCanvas()
 }
 
@@ -450,7 +458,6 @@ function changePage(diff) {
     if (gCurrPage > lastPage) gCurrPage = 1
     else if (gCurrPage < 1) gCurrPage = lastPage
 }
-
 
 function getStickersForDisplay() {
     var from = (gCurrPage - 1) * gStickersInPage

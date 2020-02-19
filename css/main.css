@@ -152,6 +152,10 @@ li.active {
     /* font-size: 1.1rem; */
 }
 
+.search-btn:hover {
+    color: #ff7f00;
+}
+
 .search-more {
     display: none;
 }
@@ -189,6 +193,11 @@ input::-webkit-calendar-picker-indicator {
     width: 240px;
 }
 
+.gallery-container img:hover {
+    opacity: 0.85;
+    border: 1px solid white;
+}
+
 /*** Memes ***/
 
 .side-container {
@@ -208,6 +217,11 @@ input::-webkit-calendar-picker-indicator {
     align-self: center;
     cursor: pointer;
     width: 240px;
+}
+
+.meme-container img:hover {
+    opacity: 0.85;
+    border: 1px solid white;
 }
 
 /*** About ***/

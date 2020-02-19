@@ -391,6 +391,11 @@ function switchLinesDrogDrop(idx) {
     gMeme.selectedLineIdx = idx
 }
 
+function switchStickers(id) {
+    var focusSticker = gMeme.stickers.findIndex(sticker => sticker.id === id)
+    gMeme.selectedStickerIdx = focusSticker
+}
+
 function switchStickersDrogDrop(idx) {
     gMeme.selectedStickerIdx = idx
 }

@@ -3,11 +3,11 @@ var gCurrLang = 'en'
 
 var gTrans = {
     'english': {
-        en: 'Eng',
+        en: 'English',
         he: 'אנגלית'
     },
     'hebrew': {
-        en: 'Heb',
+        en: 'Hebrew',
         he: 'עברית',
     },
     'gallery': {
